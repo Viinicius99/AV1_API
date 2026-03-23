@@ -3,7 +3,9 @@ export const tarefas = [
   { id: 2, titulo: "Fazer telas no Figma", concluida: true }
 ]
 
-// if (!titulo || titulo.trim() === "") {
-// return res.status(400).json({ erro: "Título é obrigatório." })
-// ;
-// }
+export function criarTarefa(titulo) {
+  const novaId = Math.max(...tarefas.map(t => t.id), 0) + 1;
+  const novaTarefa = { id: novaId, titulo, concluida: false };
+  tarefas.push(novaTarefa);
+  return novaTarefa;
+}
